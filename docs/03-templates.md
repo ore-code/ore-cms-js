@@ -11,7 +11,7 @@ There are three levels of templates:
 
 **Example**
 
-A basic site template with global layout and styling:
+_A basic site template with global layout and styling_
 
 	<!DOCTYPE html>
 	<html>
@@ -38,7 +38,7 @@ Every folder and subfolder inside `/public` must contain a `template.html` file.
 
 **Example**
 
-A folder template with a sidebar and navigation layout:
+_A folder template with a sidebar and navigation layout_
 
 	<div class="layout-with-sidebar">
   		<nav class="folder-nav">...</nav>

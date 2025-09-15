@@ -8,7 +8,7 @@ All styles must be linked in `default.html`. This file wraps every page and cont
 
 **Example**
 
-Linking a stylesheet:
+_A linked stylesheet_
 
 	<link rel="stylesheet" href="/styles/site.css">
 
@@ -18,7 +18,7 @@ If you need to style a specific page, you can use a `<style>` tag directly insid
 
 **Example**
 
-Inline styles inside a Markdown file:
+_Inline styles inside a Markdown file_
 
 	<style>
 		h1 {

@@ -63,7 +63,7 @@ Use `RewriteOptions` in `program.cs` to rewrite requests.
 
 Access is controlled at the operating system level. You decide who can read, write, or modify content by setting file and folder permissions on your server.
 
-For example:
+**For example:**
 
 - Give content editors write access to /public so they can update .md files.
 - Restrict access to /styles or template files to developers only.

@@ -8,7 +8,7 @@ JavaScript files go in the same folder as your Markdown content. The CMS looks f
 
 **Example**
 
-If a visitor loads `/contact/info`, the system will render `info.md` and inject `info.js` into the page. This lets you add behavior without modifying the layout or Markdown directly.
+_A JavaScript file associated with a Markdown Page_
 
 	/public/
 	├── about/

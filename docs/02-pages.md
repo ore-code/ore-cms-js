@@ -8,7 +8,7 @@ Each page, image, or script must live inside a folder under `/public`. These fol
 
 **Example**
 
-The structure of a small website.
+_The structure of a small website_
 
 	/public/
 	├── about/
@@ -29,7 +29,7 @@ Pages are written using Markdown—a simple formatting language used for heading
 
 **Example**
 
-A basic page written using Markdown.
+_A basic page written using Markdown_
 
 	Heading 1
 	=========
