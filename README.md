@@ -1,2 +1,17 @@
-Ore is a lightweight, client-side CMS designed for simplicity and flexibility. It runs entirely in the browser using JavaScript, which means there’s no heavy server-side dependency or database to manage. Content is stored and written in Markdown, making it easy to format pages without needing advanced technical skills.
+# Ore CMS
+
+Ore CMS runs entirely in the browser—no backend, no database, no server-side code. Just Markdown for content, HTML for layout, and optional JavaScript for behavior. Drop it onto any server with rewrite support and you're live.
+
+## Documentation
+
+- [Overview](/docs/01-overview.md)
+- [Pages](/docs/02-pages.md)
+- [Templates](/docs/03-templates.md)
+- [Styles](/docs/04-styles.md)
+- [Scripts](/docs/05-scripts.md)
+- [Deployment](/docs/06-deployment)
+
+## Contributing
+
+We welcome contributions from the community! To get started, please review our [Contributing Guidelines](https://github.com/ore-code/ore-cms-csharp/blob/main/CONTRIBUTING.md)
 

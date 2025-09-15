@@ -9,7 +9,7 @@ Thank you for your interest in contributing. We welcome all contributions that h
 Click the "Fork" button at the top-right corner of the page and clone your fork locally:
 
 ```bash
-git clone https://github.com/ore-code/ore-data-js.git
+git clone https://github.com/ore-code/ore-cms-js.git
 cd ore-data-js
 ```
 
@@ -42,7 +42,7 @@ Please follow the existing coding conventions. If in doubt, match the style of t
 
 ## Reporting Bugs and Suggesting Features
 
-Feel free to open an [Issue](https://github.com/ore-code/ore-data-js/issues) for bugs, enhancements, or questions.
+Feel free to open an [Issue](https://github.com/ore-code/ore-cms-js/issues) for bugs, enhancements, or questions.
 
 ---
 
