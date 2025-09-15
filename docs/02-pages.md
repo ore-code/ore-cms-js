@@ -7,6 +7,7 @@ Creating and managing pages is designed to be as frictionless as possible. Wheth
 Each page, image, or script must live inside a folder under `/public`. These folders define your site's structure. Each Markdown file becomes a page, and if there’s a JavaScript file with the same name, it will be executed after the page is rendered. You can also have subfolders for advanced taxonomies.
 
 **Example**
+
 The structure of a small website.
 
 	/public/
@@ -27,6 +28,7 @@ Pages are written using Markdown—a simple formatting language used for heading
 [Official Markdown guide](https://www.markdownguide.org/basic-syntax/) 
 
 **Example**
+
 A basic page written using Markdown.
 
 	Heading 1

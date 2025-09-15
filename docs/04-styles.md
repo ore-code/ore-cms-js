@@ -7,6 +7,7 @@ Styling is handled using plain CSS. There are no frameworks, no build steps, and
 All styles must be linked in `default.html`. This file wraps every page and controls layout, fonts, colors, spacing, and anything else you want to standardize across the site.
 
 **Example**
+
 Linking a stylesheet:
 
 	<link rel="stylesheet" href="/styles/site.css">
@@ -16,6 +17,7 @@ Linking a stylesheet:
 If you need to style a specific page, you can use a `<style>` tag directly inside the Markdown file. This is useful for one-off tweaks or isolated formatting.
 
 **Example**
+
 Inline styles inside a Markdown file:
 
 	<style>

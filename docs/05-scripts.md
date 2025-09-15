@@ -7,6 +7,7 @@ Scripting is handled using plain JavaScript. There are no frameworks, no build s
 JavaScript files go in the same folder as your Markdown content. The CMS looks for a .js file with the same name as the .md file and includes it during rendering.
 
 **Example**
+
 If a visitor loads `/contact/info`, the system will render `info.md` and inject `info.js` into the page. This lets you add behavior without modifying the layout or Markdown directly.
 
 	/public/
