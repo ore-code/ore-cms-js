@@ -1,6 +1,6 @@
 # Adding Styles 
 
-Styling is handled using plain CSS. There are no frameworks, no build steps, and no magic. You control how things look by linking stylesheets in `default.html` and optionally using inline styles in Markdown pages.
+Styling is handled using plain CSS. There are no frameworks, no build steps, and no magic required. You control how things look by linking stylesheets in `default.html` and optionally using inline styles in Markdown pages.
 
 ## Site Styles 
 

@@ -24,7 +24,7 @@ _A basic site template with global layout and styling_
 				<nav>...</nav>
 			</header>
 			<main id="root">
-				<!-- Folder template + Markdown content goes here -->
+				<!-- Everything gets rendered in here -->
 			</main>
 			<footer>© 2025</footer>
 		</body>
@@ -34,7 +34,7 @@ _A basic site template with global layout and styling_
 
 Every folder and subfolder inside `/public` must contain a `template.html` file. This file controls how pages in that folder are laid out—whether they include navigation, sidebars, wrappers, or custom containers. 
 
-> The `template.html` must include the `{content}` placeholder, which gets replaced with the rendered Markdown content of the current page. 
+> A `template.html` file must include the `{content}` placeholder, which gets replaced with the rendered Markdown content of the current page. 
 
 **Example**
 

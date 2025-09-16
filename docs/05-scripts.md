@@ -1,6 +1,6 @@
 ## Scripts
 
-Scripting is handled using plain JavaScript. There are no frameworks, no build steps, and no magic. You control how things behave by placing .js files next to your .md files inside /public. If a script shares the same name as the page, it will be automatically injected.
+Scripting is handled using plain JavaScript. Like stylesheets, there are no frameworks, no build steps, and no magic required. You control how things behave by placing .js files next to your .md files inside /public. If a script shares the same name as the page, it will be automatically injected.
 
 ## Structure
 
