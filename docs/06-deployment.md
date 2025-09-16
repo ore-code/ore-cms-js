@@ -4,11 +4,13 @@ The system was designed to be lightweight and server-agnostic. You don’t need 
 
 ## Rewrite Rules
 
-Clean URLs like /about or /contact rely on server-side routing. Every request must be rewritten to default.html inside the matching folder. Without this, navigation will break and pages won’t load.
+Clean URLs like `/about/team` need to be routed to `default.html` when a matching `.md` file exists. Requests for real files or unknown paths should be left untouched.
+
+Take a deep breath!
 
 ### For Apache
 
-Use `.htaccess` on your website to rewrite requests.
+Place the following in `.htaccess`.
 
 **Example**
 
@@ -26,7 +28,7 @@ Use `.htaccess` on your website to rewrite requests.
 
 ### For .NET Core
 
-Use `RewriteOptions` in `program.cs` to rewrite requests.
+Place the following rule in `Program.cs`.
 
 **Example**
 
@@ -39,10 +41,12 @@ Use `RewriteOptions` in `program.cs` to rewrite requests.
 			context.HttpContext.Request.Path = "/default.html";
 		}
 	});
- 
+	
+	app.UseRewriter(rewriter);
+
 ### For .Net Classic (web.config)
 
- Use rewrite rules in `web.config` to rewrite requests.
+Place the following Rewrite Rule in `web.config`.
 
 **Example**
 

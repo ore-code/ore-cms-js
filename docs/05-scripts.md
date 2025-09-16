@@ -19,4 +19,7 @@ _A JavaScript file associated with a Markdown Page_
 	│   ├── info.md
 	│   ├── info.js
 	│   └── template.html
+	├── main/
+	│   └── home.md
+	│   └── template.html
 	└── default.html

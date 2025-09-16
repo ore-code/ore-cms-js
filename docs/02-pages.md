@@ -19,8 +19,15 @@ _The structure of a small website_
 	│   ├── info.md
 	│   ├── info.js
 	│   └── template.html
+	├── main/
+	│   └── home.md
+	│   └── template.html
 	└── default.html
  
+### Home Page
+
+Each site must have a `/public/main/home.md` file for their home page. 
+
 ## Writing Pages
 
 Pages are written using Markdown—a simple formatting language used for headings, lists, links, and other basic structure. If you're already familiar with Markdown, you can start writing immediately. If not, it's easy to learn.
