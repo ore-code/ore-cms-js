@@ -9,7 +9,7 @@ Ore CMS runs entirely in the browser—no backend, no database, no server-side c
 - [Templates](/docs/03-templates.md)
 - [Styles](/docs/04-styles.md)
 - [Scripts](/docs/05-scripts.md)
-- [Deployment](/docs/06-deployment)
+- [Deployment](/docs/06-deployment.md)
 
 ## Contributing
 
