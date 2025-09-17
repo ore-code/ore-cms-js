@@ -4,7 +4,7 @@ Ore CMS runs entirely in the browser—no backend, no database, no server-side c
 
 ## Installation
 
-Include this before your closing `body` tag and setup a [rewrite rule](/docs/06-deployment.md)
+Include this before your closing `body` tag. See [Deployment](/docs/06-deployment.md)
 
 	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms@v1.0.0/scripts/ore.min.js"></script>
 

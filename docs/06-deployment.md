@@ -4,11 +4,10 @@ The system was designed to be lightweight and server-agnostic. You don’t need 
 
 ## Installation
 
-Include the following line on your home page and go to the next section.
+Include this before your closing `body` tag.
 
-	<script src="https://raw.githubusercontent.com/ore-code/ore-cms/refs/heads/main/scripts/vendor/ore.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms@v1.0.0/scripts/ore.min.js"></script>
 
- 
 ## Rewrite Rules
 
 Clean URLs like `/about/team` need to be routed to `default.html` when a matching `.md` file exists. Requests for real files or unknown paths should be left untouched.
