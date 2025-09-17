@@ -2,6 +2,13 @@
 
 The system was designed to be lightweight and server-agnostic. You don’t need a backend, database, or special runtime—just a web server that supports static file hosting and URL rewriting. Once your files are in place and your rewrite rule is configured, your site is ready to go.
 
+## Installation
+
+Include the following line on your home page and go to the next section.
+
+	<script src="https://raw.githubusercontent.com/ore-code/ore-cms/refs/heads/main/scripts/vendor/ore.min.js"></script>
+
+ 
 ## Rewrite Rules
 
 Clean URLs like `/about/team` need to be routed to `default.html` when a matching `.md` file exists. Requests for real files or unknown paths should be left untouched.
