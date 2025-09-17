@@ -2,6 +2,12 @@
 
 Ore CMS runs entirely in the browser—no backend, no database, no server-side code. Just Markdown for content, HTML for layout, and optional JavaScript for behavior. Drop it onto any server with rewrite support and you're live.
 
+## Installation
+
+Include this before your closing `body` tag and setup a [rewrite rule](/docs/06-deployment.md)
+
+	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms@v1.0.0/scripts/ore.min.js"></script>
+
 ## Documentation
 
 - [Overview](/docs/01-overview.md)
