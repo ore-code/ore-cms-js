@@ -6,7 +6,7 @@ The system was designed to be lightweight and server-agnostic. You don’t need 
 
 Include this before your closing `body` tag.
 
-	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms@v1.0.0/scripts/ore.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms-js@v1.0.0/scripts/ore.min.js"></script>
 
 ## Rewrite Rules
 
