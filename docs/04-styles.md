@@ -1,28 +1,33 @@
-# Adding Styles 
+Styles
+=====================================================
 
-Styling is handled using plain CSS. There are no frameworks, no build steps, and no magic required. You control how things look by linking stylesheets in `default.html` and optionally using inline styles in Markdown pages.
-
-## Site Styles 
-
-All styles must be linked in `default.html`. This file wraps every page and controls layout, fonts, colors, spacing, and anything else you want to standardize across the site.
+You can style your website by adding a stylesheet using a link tag in your `default.html` file.  
 
 **Example**
 
-_A linked stylesheet_
+	<!doctype html>
+	<html>
+		<head>
+			<link rel="stylesheet" href="/styles/site.css">
+		</head>
+		<body>
+			<header>
+				<nav>
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+					<a href="#">Link 4</a>
+				</nav>
+			</header>
 
-	<link rel="stylesheet" href="/styles/site.css">
+			<main id="root">
+				<!--Folder and Subfolder templates get generated here-->
+			</main>
 
-## Page Styles
+			<script src="/scripts/ore-cms.min.js"></script>
+		</body>
+	</html>
+ 
+-----
 
-If you need to style a specific page, you can use a `<style>` tag directly inside the Markdown file. This is useful for one-off tweaks or isolated formatting.
-
-**Example**
-
-_Inline styles inside a Markdown file_
-
-	<style>
-		h1 {
-			color: darkred;
-			font-family: Georgia, serif;
-		}
-	</style>
+[Next: Scripts >](/docs/05-scripts.md)

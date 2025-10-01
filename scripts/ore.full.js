@@ -109,6 +109,13 @@
 			el.textContent = code;
 
 			//
+			// Make the script a module if it finds this comment.
+			//
+			if (code.includes("//@module")) {
+				el.type = "module";
+			}
+			
+			//
 			// Insert the script element.
 			//
 			root.appendChild(el);

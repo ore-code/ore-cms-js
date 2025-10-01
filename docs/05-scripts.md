@@ -1,25 +1,31 @@
-## Scripts
+Scripts
+=====================================================
 
-Scripting is handled using plain JavaScript. Like stylesheets, there are no frameworks, no build steps, and no magic required. You control how things behave by placing .js files next to your .md files inside /public. If a script shares the same name as the page, it will be automatically injected.
-
-## Structure
-
-JavaScript files go in the same folder as your Markdown content. The CMS looks for a .js file with the same name as the .md file and includes it during rendering.
+You can add custom behavior to a page by creating a script file with the same name as the markdown file. Once the page loads, the script will be ran.
 
 **Example**
 
-_A JavaScript file associated with a Markdown Page_
+	/
+	├── public/
+	│   ├── main/
+	│   │   ├── home.md
+	│   │   ├── story.md
+	│   │   ├── contact.md	
+	│   │   └── contact.js		
+	│   ├── menus/		
+	│   │   ├── coffee.md
+	│   │   └── pastries.md		
+	├── default.html
 
-	/public/
-	├── about/
-	│   ├── company.md
-	│   ├── mission.md
-	│   └── template.html
-	├── contact/
-	│   ├── info.md
-	│   ├── info.js
-	│   └── template.html
-	├── main/
-	│   └── home.md
-	│   └── template.html
-	└── default.html
+Modules
+-----------------------------------------------------------
+
+To load a script as a module, add this comment at the top 
+of the JavaScript file:
+
+	//@module
+
+
+-----
+
+[Next: Templates >](/docs/06-templates.md)
