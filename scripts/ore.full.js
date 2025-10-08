@@ -7,7 +7,7 @@
 	 * @param {string} route - The route
 	 * @returns {void}
 	 */
-	async function ore_init(route) {
+	async function ore_init(route) {		
 		//
 		// Set the route to the default route for the root.
 		//
@@ -44,18 +44,23 @@
 		// Define the folder portion of the route.
 		//
 		const folder = route.match(/^.*\//)[0];
-	 
+		
 		//
 		// Define a timestamp to cache-bust content.
 		//
 		const stamp = new Date().getTime();
 
+	 	//
+		// Send information text to the console.
+		//
+		console.info(`%c ⓘ Ore CMS: Ignore potential '404' errors for '${folder}template.html' or '${route}.js in the console.`, "display: block; padding: .375rem; border-radius: 4px; background-color: #005EB8; color: #fff");
+	
 		//
 		// Return the object containing the paths.
 		//
 		return {
-			template: folder + "template.html",
-			markdown: route + ".md?t=" + stamp,
+			template: 	folder + "template.html",
+			markdown: 	route + ".md?t=" + stamp,
 			javaScript: route + ".js?t=" + stamp
 		}
 	}
@@ -69,10 +74,10 @@
 		//
 		// Fetch the template, markdown, and Javascript.
 		//
-		const template = await (await fetch(paths.template)).text() || "{content}";
-		const markdown = await (await fetch(paths.markdown)).text() || "";
-		const javaScript = await (await fetch(paths.javaScript)).text() || "";
-		const html = marked.parse(markdown);
+		const template 		= await (await fetch(paths.template)).text() || "{content}";
+		const markdown 		= await (await fetch(paths.markdown)).text() || "";
+		const javaScript 	= await (await fetch(paths.javaScript)).text() || "";
+		const html 			= marked.parse(markdown);
 
 		//
 		// Return an object containing the final code.
@@ -130,7 +135,7 @@
 	function ore_is_file_missing(code) {
 		return code.includes(`<html>`) || code === "";
 	}
-
+	
 	//
 	// Initialize the page.
 	//
