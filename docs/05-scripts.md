@@ -20,11 +20,10 @@ You can add custom behavior to a page by creating a script file with the same na
 Modules
 -----------------------------------------------------------
 
-To load a script as a module, add this comment at the top 
-of the JavaScript file:
+To load a script as a module, add this to the top of the 
+JavaScript file:
 
-	//@module
-
+	"@module";
 
 -----
 

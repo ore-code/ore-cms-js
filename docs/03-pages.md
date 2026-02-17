@@ -38,8 +38,7 @@ Markdown is a plain text format used to create your webpages. It supports basic 
 Text Editors
 -----------------------------------------------------------
 
-You can edit Markdown files with any text editor. While all editors support plain text, some offer features that make writing and organizing Markdown easier—especially if you're working on multiple pages or updating content regularly. Use 
-whatever tool fits your workflow best.
+You can edit Markdown files with any text editor. While all editors support plain text, some offer features that make writing and organizing Markdown easier—especially if you're working on multiple pages or updating content regularly. Use whatever tool fits your workflow best.
 
 **Suggested Editors**
 

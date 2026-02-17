@@ -1,143 +1,195 @@
 (function () {
-
-	const root = document.getElementById("root");
+	/**
+	 * Define the root element for DOM manipulation.
+	 * 
+	 * @type {HTMLElement}
+	 */
+	const root = document.getElementById("root"); 
 
 	/**
-	 * Initializes the page loader for a given route.
-	 * @param {string} route - The route
-	 * @returns {void}
+	 * Define the route for the default home page.
+	 * 
+	 * @type {string}
 	 */
-	async function ore_init(route) {		
+	const homeRoute = "/main/home";
+
+	/**
+	 * Define the file folder where the files live.
+	 * 
+	 * @type {string}
+	 */
+	const fileFolder = "/public";
+
+	/**
+	 * Define the route for the any error pages.
+	 * 
+	 * @type {string}
+	 */
+	const errorPage = "/error.html";
+
+	/**
+	 * Define a constant used for cache-busting.
+	 * 
+	 * @type {string}
+	 */
+	const cacheBust = new Date().getTime().toString();
+
+	/**
+	 * Initializes the CMS for the given route. 
+	 * 
+	 * @param {string} route
+	 */
+	async function initCMS(route) {
+//
+		// Use the default page if root is root.
 		//
-		// Set the route to the default route for the root.
-		//
-		route = route === "/" ? "/main/home" : route;
+		route = route === "/" ? homeRoute : route;
 
 		//
-		// Define the object containing the paths.
+		// Build an object containing the paths.
 		//
-		const paths = ore_get_paths("/public" + route);
-		 
-		//
-		// Define the object containing the code.
-		//
-		const code = await ore_get_code(paths);
+		const paths = getFilePaths(fileFolder + route);
 
 		//
-		// Add the HTML to the page.
+		// Fetch the code from the paths object.
 		//
-		ore_add_html(code.html);
+		const code = await getFileCode(paths);
+ 
+		if(isInvalidCode(code.md) == false) {
+			//
+			// Inject the HTML into the root element.
+			//
+			injectHTML(code.html);
 
-		//
-		// Create a new script element with the code.
-		//
-		ore_add_script(code.javaScript);
+			//
+			// Inject the script into the root element.
+			//
+			injectScript(code.js);
+		}
+		else {
+			location.href = errorPage;
+		}
 	}
 
 	/**
-	 * Return an object containing file paths for a given route.
-	 * @param {string} route
-	 * @returns {Object} 
+	 * Return an object containing file paths.
+	 * 
+	 * @param {string} 
+	 * @return {Object}
 	 */
-	function ore_get_paths(route) {
+	function getFilePaths(route) {		
 		//
-		// Define the folder portion of the route.
+		// Define a folder from the route path.
 		//
 		const folder = route.match(/^.*\//)[0];
 		
 		//
-		// Define a timestamp to cache-bust content.
-		//
-		const stamp = new Date().getTime();
-
-	 	//
-		// Send information text to the console.
-		//
-		console.info(`%c ⓘ Ore CMS: Ignore potential '404' errors for '${folder}template.html' or '${route}.js in the console.`, "display: block; padding: .375rem; border-radius: 4px; background-color: #005EB8; color: #fff");
-	
-		//
-		// Return the object containing the paths.
+		// Return an object containing file paths.
 		//
 		return {
 			template: 	folder + "template.html",
-			markdown: 	route + ".md?t=" + stamp,
-			javaScript: route + ".js?t=" + stamp
+			md: 		route + ".md?t=" + cacheBust,
+			js: 		route + ".js?t=" + cacheBust
 		}
 	}
 
 	/**
-	 * Return an object containing the code from a given path object.
-	 * @param {Object} paths
-	 * @returns {Object} 
+	 * Return an object containing file code.
+	 * 
+	 * @param {Object} 
+	 * @return {Object}
 	 */
-	async function ore_get_code(paths) {
+	async function getFileCode(paths) {
 		//
-		// Fetch the template, markdown, and Javascript.
+		// Fetch the template file for the route.
 		//
-		const template 		= await (await fetch(paths.template)).text() || "{content}";
-		const markdown 		= await (await fetch(paths.markdown)).text() || "";
-		const javaScript 	= await (await fetch(paths.javaScript)).text() || "";
-		const html 			= marked.parse(markdown);
+		const template = await (await fetch(paths.template)).text() || "{content}";
 
 		//
-		// Return an object containing the final code.
+		// Fetch the Markdown file for the route.
+		//
+		const markdown = await (await fetch(paths.md)).text() || "";
+
+		//
+		// Fetch the JavaScript file for the route.
+		//
+		const js = await (await fetch(paths.js)).text() || "";
+
+		//
+		// Convert Markdown to HTML using marked parser.
+		//
+		const html = marked.parse(markdown);
+
+		//
+		// Return an object containing the code.
 		//
 		return {
 			html: template.replace("{content}", `${html}`),
-			javaScript: javaScript
-		}
+			  js: js,
+			  md: markdown
+		};
 	}
-
+		
 	/**
-	 * Add the html inside the root element.
+	 * Inject a HTML inside the root element.
+	 * 
 	 * @param {string} code
-	 * @returns {void}
 	 */
-	function ore_add_html(code) {
-		if (ore_is_file_missing(code) === false) {
+	function injectHTML(code) {
+		if(isInvalidCode(code) === false) {
 			root.innerHTML = code;
 		}
 	}
 
 	/**
-	 * Add the script inside the root element.
+	 * Inject a script element inside the root element.
+	 * 
 	 * @param {string} code
-	 * @returns {void}
 	 */
-	function ore_add_script(code) {
-		if (ore_is_file_missing(code) === false) {
+	function injectScript(code) {
+		if(isInvalidCode(code) === false) {
+			//
+			// Define a <script> element for the code.
+			//
 			let el = document.createElement('script');
 
 			//
-			// Defines the script source.
+			// Set the fetched code to the element.
 			//
 			el.textContent = code;
 
 			//
-			// Make the script a module if it finds this comment.
+			// Check for special literal to set type.
 			//
-			if (code.includes("//@module")) {
+			if (code.includes("@module")) {
 				el.type = "module";
 			}
-			
+
 			//
-			// Insert the script element.
+			// Inject the element into the page.
 			//
 			root.appendChild(el);
 		}
 	}
 
 	/**
-	 * Returns a boolean indicating if the code is blank or malformed.
+	 * Determines whether the fetched code is missing or a  
+     * server error.
+	 * 
 	 * @param {string} code
-	 * @returns {void}
+	 * @return {boolean} 
 	 */
-	function ore_is_file_missing(code) {
-		return code.includes(`<html>`) || code === "";
+	function isInvalidCode(code) {
+		//
+		// Markdown and script pages will never contain a
+		// <html> element. If it exists in the string, the   
+		// server likely returned an error page.
+		//
+		return code.includes(`<html`) || code === "";
 	}
-	
+
 	//
-	// Initialize the page.
+	// Initialize CMS.
 	//
-	ore_init(location.pathname);
+	initCMS(location.pathname).catch(err => console.error(err));	
 })();
