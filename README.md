@@ -2,10 +2,15 @@
 
 Ore CMS runs entirely in the browser—no backend, no database, no server-side code. Just Markdown for content, HTML for layout, and optional JavaScript for behavior. Drop it onto any server with rewrite support and you're live.
 
+## Dependencies
+
+Ore CMS requires [Marked]("https://cdn.jsdelivr.net/npm/marked@15.0.7/lib/marked.umd.min.js").
+
 ## Installation
 
 Include this before your closing `body` tag. See [Deployment](/docs/06-deployment.md)
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/lib/marked.umd.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/ore-code/ore-cms@v1.0.0/scripts/ore.min.js"></script>
 
 ## Documentation

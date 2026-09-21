@@ -1,5 +1,7 @@
+/**
+ * Ore CMS
+ */
 (function () {
-
 	const root = document.getElementById("root");
 
 	/**
@@ -72,8 +74,8 @@
 		const template = await (await fetch(paths.template)).text() || "{content}";
 		const markdown = await (await fetch(paths.markdown)).text() || "";
 		const javaScript = await (await fetch(paths.javaScript)).text() || "";
-		const html = marked.parse(markdown);
-
+		const html = marked.parse(ore_add_containers(markdown));
+         
 		//
 		// Return an object containing the final code.
 		//
@@ -123,6 +125,27 @@
 	function ore_is_file_missing(code) {
 		return code.includes(`<html>`) || code === "";
 	}
+
+	/**
+	 * Converts ::: container fences into div elements.
+	 * @param {string} markdown
+	 * @returns {string}
+	 */
+    function ore_add_containers(markdown) {
+        //
+		// Define the patterns for opening and closing fences.
+		//
+		const opening_fence = /^:::[ \t]*([\w-]+(?:[ \t]+[\w-]+)*)[ \t]*\r?$/gm;
+		const closing_fence = /^:::[ \t]*\r?$/gm;
+
+		//
+		// Replace the fences with divs, padded with blank lines so the
+		// content inside is still parsed as markdown.
+		//
+		return markdown
+			.replace(opening_fence, '\n<div class="$1">\n')
+			.replace(closing_fence, '\n</div>\n');        
+    }
 
 	//
 	// Initialize the page.

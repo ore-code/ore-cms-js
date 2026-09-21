@@ -26,3 +26,36 @@ _Inline styles inside a Markdown file_
 			font-family: Georgia, serif;
 		}
 	</style>
+
+## Container Fences
+
+Ore converts container fences into `div` elements, so you can wrap Markdown content in a styled block without writing HTML. Open a container with `:::` followed by one or more class names, and close it with `:::` on its own line. Markdown inside the container is still parsed normally.
+
+**Example**
+
+_A container with classes_
+
+	::: myclass1 myclass2 myclass3
+	Nested content
+	:::
+
+_Output_
+
+	<div class="c-box c-box--spacing-lg c-box-lime">
+		<ul>
+			<li>Item one</li>
+			<li>Item two</li>
+		</ul>
+	</div>
+
+Containers can be nested. Each closing `:::` closes the most recently opened container.
+
+**Example**
+
+_Nested containers_
+
+	::: myclass1 
+    ::: myclass2
+	Nested content
+	:::
+    :::
